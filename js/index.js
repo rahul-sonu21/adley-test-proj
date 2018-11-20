@@ -1,5 +1,6 @@
 // Global variables
 var map;
+var apiDomain = 'http://localhost:3000/';
 
 function showComponent(componentId, buttonId) {
     activateComponent(componentId);
