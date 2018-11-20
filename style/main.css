@@ -1,3 +1,30 @@
+button {
+    padding: 10px;
+    min-width: 100px;
+    background-color: deepskyblue;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    outline: none;
+}
+
+.btn-active {
+    background-color: dodgerblue;
+}
+
+.btn-inActive {
+    background-color: deepskyblue;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: dodgerblue;
+}
+
+.content {
+    display: none;
+}
+
 footer {
     height: 60px; /* 60px + padding (top 10px + bottom 10px) = 80px */
     border: 1px solid #ddd;
@@ -22,4 +49,11 @@ main {
     min-height: -webkit-calc(100% - 208px);
     min-height: -moz-calc(100% - 208px);
     min-height: calc(100% - 208px);
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center; 
+}
+
+.pull-right {
+    float: right;
 }

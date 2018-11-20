@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head>
-  <meta charset="UTF-8">
-  <title>Test Project</title>
-  <link href="style/main.css" rel="stylesheet">
-</head>
-<body>
-    <header>
-        Header
-    </header>
-    <main>
-        Content
-    </main>
-    <footer>
-        Footer
-    </footer>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Test Project</title>
+        <link href="style/main.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            Header
+        </header>
+        <main>
+            <div id="mapView" class="content">
+                MapView
+            </div>
+            <div id="listView" class="content">
+                ListView
+            </div>
+        </main>
+        <footer>
+            <button id="btnMap" type="button" onclick="showComponent('mapView', 'btnMap')">
+                Map
+            </button>
+            <button id="btnList" type="button" onclick="showComponent('listView', 'btnList')" class="pull-right">
+                List
+            </button>
+        </footer>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
 </html>
