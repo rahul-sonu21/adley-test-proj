@@ -1,3 +1,6 @@
+// Global variables
+var map;
+
 function showComponent(componentId, buttonId) {
     activateComponent(componentId);
     activateButton(buttonId);
@@ -14,13 +17,21 @@ function activateButton(buttonId) {
 }
 
 function activateComponent(componentId) {
-    var divs = document.getElementsByClassName('content')
+    var divs = document.getElementsByClassName('content');
     var len = divs.length;
     for(var i = 0; i < len; i++){
         divs[i].style.display = "none";
     }
 
     document.getElementById(componentId).style.display = 'block';
+}
+
+// Google map callback method
+function initMap() {
+    map = new google.maps.Map(document.getElementById('mapView'), {
+        center: {lat: -34.397, lng: 150.644},
+        zoom: 8
+    });
 }
 
 // Show Map component by default
