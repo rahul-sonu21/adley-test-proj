@@ -33,6 +33,47 @@ function initMap() {
         center: {lat: -34.397, lng: 150.644},
         zoom: 8
     });
+    setMarkers();
+}
+
+function setMarkers() {
+    getLocations(function(locations) {
+        var locations = JSON.parse(locations);
+        if(locations && locations.length > 0) {
+            var locationsLen = locations.length;
+            for(i=0; i<locationsLen; i++) {
+                var marker = createMarker(locations[i]);
+                marker.setMap(map);
+            }
+        }
+    });
+}
+
+function getLocations(callback) {
+    sendAjaxReg('locations', function(data) {
+        callback(data);
+    });
+}
+
+function sendAjaxReg(apiEndpoint, callback) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            callback(this.responseText);
+        }
+    };
+    xhttp.open('GET', apiDomain + apiEndpoint, true);
+    xhttp.send();
+}
+
+function createMarker(locationObj) {
+    var myLatLng = {lat: locationObj.latitude, lng: locationObj.longitude};
+    var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        title: locationObj.name
+    });
+    return marker;
 }
 
 // Show Map component by default
