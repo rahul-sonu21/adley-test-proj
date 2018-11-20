@@ -5,6 +5,11 @@ var apiDomain = 'http://localhost:3000/';
 function showComponent(componentId, buttonId) {
     activateComponent(componentId);
     activateButton(buttonId);
+
+    // Show List
+    if(componentId == 'listView') {
+        showList();
+    }
 }
 
 function activateButton(buttonId) {
@@ -34,6 +39,31 @@ function initMap() {
         zoom: 8
     });
     setMarkers();
+}
+
+function showList() {
+    var listViewData = document.getElementById('listView-data');
+    listViewData.innerHTML = 'Please wait loading your content...';
+    getLocations(function(locations) {
+        listViewData.innerHTML = '';
+        var locations = JSON.parse(locations);
+        if(locations && locations.length > 0) {
+            var locationsLen = locations.length;
+            for(i=0; i<locationsLen; i++) {
+                listViewData.innerHTML += createLocationBox(locations[i]);
+            }
+        }
+    }); 
+}
+
+function createLocationBox(locationObj) {
+    var locBox =
+    '<div class="loc-box">'+
+        '<div>Name: ' + locationObj.name + '</div>'+
+        '<div>Latitude: ' + locationObj.latitude + '</div>'+
+        '<div>Longitude: ' + locationObj.longitude + '</div>'+
+    '</div>';
+    return locBox;
 }
 
 function setMarkers() {

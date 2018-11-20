@@ -1,3 +1,5 @@
+/* All entries are in ascending order*/
+
 button {
     padding: 10px;
     min-width: 100px;
@@ -44,6 +46,12 @@ html, body {
     margin: 0;
 }
 
+.loc-box {
+    background-color: beige;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
 main {
     padding: 10px;
     min-height: -webkit-calc(100% - 208px);
@@ -59,4 +67,12 @@ main {
 
 .pull-right {
     float: right;
+}
+
+.title {
+    background-color: #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
 }
